@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5442/test_db
+    username: test_user
+    password: password
+
+  jpa:
+    properties:
+      hibernate:
+        #        generate_statistics: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog.xml
+  servlet:
+    multipart:
+     max-file-size: 256KB
+     max-request-size: 256KB
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+  share-security-context: true
+
+ribbon:
+  eureka:
+    enabled: false
+dirPath: /Users/a17857189/Documents/Quandoo/NeuroNet/src/main/resources/pictures/black_background/
+uploadDir: /Users/a17857189/Documents/Quandoo/NeuroNet/src/main/resources/pictures/uploads/
+workDir: /Users/a17857189/Documents/Quandoo/NeuroNet/src/main/resources/pictures/black_background/
+pythonScript: /Users/a17857189/Documents/Quandoo/NeuroNet/src/main/resources/NN_From_Disc.py
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true

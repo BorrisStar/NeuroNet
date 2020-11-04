@@ -1,0 +1,90 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <title>NeuronNet for handwritten digits</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">sberbank.ru</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="min-height: 500px">
+
+    <div class="starter-template">
+        <h1>Neuron Net technology</h1>
+
+        <div id="feedback"></div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="form-group">
+                <p th:text="${message}" class="alert alert-primary"></p>
+                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <h2>Upload File</h2>
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg">Upload File</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <form class="form-horizontal" id="statistics-form">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" id="bth-statistics"
+                            class="btn btn-primary btn-lg">Statistics
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" id="processing-form">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" id="bth-processing"
+                            class="btn btn-primary btn-lg">Confusion matrix
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal" id="getall-form">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" id="bth-getall"
+                            class="btn btn-primary btn-lg">Get pics
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <footer>
+        <p>
+            © <a href="http://www.sberbank.ru">sberbank.ru</a> 2020
+        </p>
+    </footer>
+</div>
+
+<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
